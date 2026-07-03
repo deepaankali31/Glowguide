@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/auth.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="auth-background">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <!-- Left Side - Brand -->
+        <div class="auth-brand">
+            <div class="brand-content">
+                <div class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <h1>Glow Guide</h1>
+                </div>
+                <div class="brand-text">
+                    <h2>Start Your Wellness Journey</h2>
+                    <p>Join thousands of users transforming their lives with AI-powered wellness coaching.</p>
+                </div>
+                <div class="features-list">
+                    <div class="feature">
+                        <i class="fas fa-brain"></i>
+                        <span>Personalized AI Coach</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tasks"></i>
+                        <span>Smart Habit Tracking</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Progress Analytics</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-film"></i>
+                        <span>Wellness Content</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Glow Guide helped me build consistent habits I never thought possible. The AI coach understands my needs perfectly!"</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah M.</strong>
+                            <span>User for 6 months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Signup Form -->
+        <div class="auth-form-container">
+            <div class="auth-form">
+                <div class="form-header">
+                    <h2>Create Your Account</h2>
+                    <p>Start your transformation today</p>
+                </div>
+
+                <form id="signup-form" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-firstname" class="input-label">
+                                <i class="fas fa-user"></i>
+                                First Name
+                            </label>
+                            <input type="text" id="signup-firstname" name="first_name" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname" class="input-label">
+                                <i class="fas fa-user"></i>
+                                Last Name
+                            </label>
+                            <input type="text" id="signup-lastname" name="last_name" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email" class="input-label">
+                            <i class="fas fa-envelope"></i>
+                            Email Address
+                        </label>
+                        <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password" class="input-label">
+                            <i class="fas fa-lock"></i>
+                            Password
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+                            <button type="button" class="toggle-password" id="toggle-signup-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-progress" id="password-strength"></div>
+                            </div>
+                            <span class="strength-text" id="password-text">Password strength</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm-password" class="input-label">
+                            <i class="fas fa-lock"></i>
+                            Confirm Password
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="signup-confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+                            <button type="button" class="toggle-password" id="toggle-confirm-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <span class="checkmark"></span>
+                            Send me wellness tips and product updates
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="link">Terms of Service</a> and <a href="#" class="link">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-auth">
+                        <span>Create Account</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+
+                    <div class="auth-divider">
+                        <span>Or sign up with</span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button type="button" class="btn btn-social btn-google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="btn btn-social btn-apple">
+                            <i class="fab fa-apple"></i>
+                            <span>Apple</span>
+                        </button>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="{% url 'glowguide:login' %}" class="auth-link">Sign in here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'glowguide/js/auth.js' %}"></script>
+</body>
+</html>

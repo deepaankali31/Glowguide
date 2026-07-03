@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/chat.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link active">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="title-content">
+                        <h2>AI Lifestyle Coach</h2>
+                        <span class="status online">
+                            <i class="fas fa-circle"></i>
+                            Online
+                        </span>
+                    </div>
+                </div>
+                <div class="personality-selector">
+                    <label for="chat-personality">Coach Style:</label>
+                    <div class="select-wrapper">
+                        <select id="chat-personality">
+                            <option value="a friendly and encouraging coach">🌟 Encouraging Coach</option>
+                            <option value="a straightforward, no-nonsense drill sergeant">💪 Drill Sergeant</option>
+                            <option value="a calm and mindful zen master">🧘 Zen Master</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div id="chat-window" class="chat-window">
+                <div class="welcome-message">
+                    <div class="message ai-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI Lifestyle Coach. How can I help you on your wellness journey today? 🌱</p>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <form id="chat-form" class="chat-input-form">
+                <div class="input-container">
+                    <input type="text" id="chat-input" placeholder="Ask me anything about wellness, habits, or routines..." autocomplete="off" required>
+                    <button type="submit" class="btn btn-primary send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/chat.js' %}"></script>
+</body>
+</html>

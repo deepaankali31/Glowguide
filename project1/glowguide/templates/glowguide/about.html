@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/about.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-emoji">🌱</span>
+                <h2 class="logo-text">Glow Guide</h2>
+            </div>
+            <div class="loader-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="background-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:about' %}" class="nav-link active">About</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:login' %}" id="login-btn" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:signup' %}" id="signup-btn" class="nav-link">Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Our Mission</h1>
+                    <div class="hero-decoration">
+                        <div class="decoration-circle circle-1"></div>
+                        <div class="decoration-circle circle-2"></div>
+                        <div class="decoration-circle circle-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="about-content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-card mission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="card-content">
+                            <p>At Glow Guide, we believe that the biggest barrier to a healthier life is the "awareness gap"—the space between knowing what's good for you and actually doing it. Our mission is to close that gap.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card vision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="card-content">
+                            <p>We use cutting-edge AI to provide personalized, actionable, and empathetic coaching. We're not just another tracker; we're your partner in building a life of intention, wellness, and fulfillment.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card impact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="card-content">
+                            <p>By making wellness accessible, engaging, and deeply personal, we help you turn knowledge into lasting habits.</p>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <div class="cta-content">
+                            <h2>Join us on the journey to a better you.</h2>
+                            <div class="cta-buttons">
+                                <a href="{% url 'glowguide:dashboard' %}" class="btn btn-primary">
+                                    <span>Start Your Journey</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="{% url 'glowguide:index' %}" class="btn btn-secondary">
+                                    <span>Explore Features</span>
+                                    <i class="fas fa-compass"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Empathy First</h3>
+                        <p>We understand that every wellness journey is unique and deeply personal.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Leveraging AI to provide insights that transform your daily habits.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Trust & Privacy</h3>
+                        <p>Your data is sacred. We protect it with enterprise-grade security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/about.js' %}"></script>
+</body>
+</html>

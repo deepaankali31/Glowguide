@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Guide - AI Lifestyle Coach</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'glowguide/css/index.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-icon">🌱</span>
+                <h2>Glow Guide</h2>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:about' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:login' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:signup' %}" class="nav-link">Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Close the <span class="highlight">Awareness Gap</span>.</h1>
+                    <p class="hero-subtitle">Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="hero-buttons">
+                        <a href="#features" class="btn btn-primary">
+                            <span>Discover How</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <span>Watch Demo</span>
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-brain"></i>
+                        <p>Personalized AI Coaching</p>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Progress Analytics</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-heartbeat"></i>
+                        <p>Wellness Tracking</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <p>Scroll to explore</p>
+            </div>
+        </section>
+
+        <section id="features" class="features-grid">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Features Designed For <span class="highlight">You</span></h2>
+                    <p>Experience personalized wellness with our AI-powered tools</p>
+                </div>
+                <div class="grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Coaching</h3>
+                        <p>Get personalized advice, routines, and motivation from your AI wellness companion.</p>
+                        <div class="feature-footer">
+                            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Habit Tracking</h3>
+                        <p>Build positive habits with a simple, intuitive tracker that helps you stay consistent.</p>
+                        <div class="feature-footer">
+                            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>Wellness Reels</h3>
+                        <p>Discover quick, engaging video content on everything from mindfulness to nutrition.</p>
+                        <div class="feature-footer">
+                            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Personal Analytics</h3>
+                        <p>Visualize your progress and gain insights into your wellness journey over time.</p>
+                        <div class="feature-footer">
+                            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our <span class="highlight">Users</span> Say</h2>
+                    <p>Join thousands who have transformed their wellness journey</p>
+                </div>
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Glow Guide helped me establish a consistent meditation practice after years of trying. The AI coach understands my needs perfectly."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Yoga Instructor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The habit tracking feature is a game-changer. I've never been able to stick to my fitness goals until now!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Software Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"As a busy professional, the wellness reels give me quick, actionable tips that fit into my schedule. Highly recommended!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Elena Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Elena Rodriguez</h4>
+                                <p>Marketing Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your <span class="highlight">Wellness Journey</span>?</h2>
+                    <p>Join thousands of users who have already discovered a healthier, more intentional life with Glow Guide.</p>
+                    <div class="cta-buttons">
+                        <a href="{% url 'glowguide:dashboard' %}" class="btn btn-primary btn-large">
+                            <span>Get Started Free</span>
+                            <i class="fas fa-rocket"></i>
+                        </a>
+                        <a href="{% url 'glowguide:about' %}" class="btn btn-secondary btn-large">
+                            <span>Learn More</span>
+                            <i class="fas fa-book-open"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+</body>
+</html>

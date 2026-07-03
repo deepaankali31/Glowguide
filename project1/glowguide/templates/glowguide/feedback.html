@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/feedback.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:about' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:login' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:signup' %}" class="nav-link">Signup</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container feedback-container">
+            <h1>We Value Your Feedback</h1>
+            <p>Have a suggestion, a question, or found a bug? Let us know!</p>
+            <form id="feedback-form" class="card" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+            <div id="feedback-response" class="feedback-response"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+</body>
+</html>

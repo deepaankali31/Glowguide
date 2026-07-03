@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/habit.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link active">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container habit-container">
+            <div class="habit-header">
+                <h1 class="page-title">My Habits</h1>
+                <p class="page-subtitle">Build positive habits one day at a time</p>
+            </div>
+
+            <!-- Add Habit Form -->
+            <div class="habit-form-container card">
+                <div class="form-header">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>Add New Habit</h3>
+                </div>
+                <form id="add-habit-form" class="habit-form">
+                    <div class="input-group">
+                        <input type="text" id="habit-name" placeholder="Enter a new habit (e.g., Drink 8 glasses of water)" required>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Add Habit</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Habit List -->
+            <div class="habit-list-section">
+                <div class="section-header">
+                    <i class="fas fa-list-check"></i>
+                    <h2>Your Habits</h2>
+                </div>
+                <div id="habit-list" class="habit-list">
+                    <div class="loading-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading your habits...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/habit.js' %}"></script>
+</body>
+</html>

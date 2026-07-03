@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Analytics - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/analytics.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link active">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container analytics-container">
+            <h1>Your Wellness Analytics</h1>
+            <p>Track your long-term progress and discover powerful insights.</p>
+            
+            <div class="analytics-grid">
+                <!-- Card 1: Habit Completion -->
+                <div class="analytics-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>Habit Completion Over Time</h2>
+                    <div class="chart-container">
+                        <canvas id="habit-over-time-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Card 2: Most Consistent Habits -->
+                <div class="analytics-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h2>Most Consistent Habits</h2>
+                    <div class="chart-container">
+                        <canvas id="most-consistent-chart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Card 3: AI Insight -->
+                <div class="analytics-card insight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2>AI-Generated Insight</h2>
+                    <div id="ai-insight">
+                        <p>Click the button to analyze your patterns and get a personalized insight.</p>
+                        <button id="get-insight-btn" class="btn btn-primary">Analyze My Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/analytics.js' %}"></script>
+</body>
+</html>

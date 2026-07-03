@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Reels - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/reels.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link active">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="reels-header">
+            <div class="container">
+                <h1 class="reels-title">Wellness Reels</h1>
+                <p class="reels-subtitle">Discover wellness videos tailored to your interests</p>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Search for exercises, yoga, meditation, wellness..." />
+                        <button id="search-btn" class="btn btn-primary">
+                            <span>Search</span>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="search-suggestions">
+                        <span class="suggestion-label">Quick Searches:</span>
+                        <button class="suggestion-tag" data-search="yoga for beginners">Yoga</button>
+                        <button class="suggestion-tag" data-search="meditation guided">Meditation</button>
+                        <button class="suggestion-tag" data-search="morning exercise">Morning Exercise</button>
+                        <button class="suggestion-tag" data-search="stretching routine">Stretching</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reels-viewer">
+            <div class="reels-controls">
+                <button class="control-btn btn-prev" id="prev-reel">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <div class="reels-counter">
+                    <span id="current-reel">1</span>
+                    <span class="counter-divider">/</span>
+                    <span id="total-reels">0</span>
+                </div>
+                <button class="control-btn btn-next" id="next-reel">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <div id="reels-container" class="reels-container">
+                <div class="reel-item-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fas fa-play-circle"></i>
+                        <h2>Wellness Content</h2>
+                        <p>Use the search bar above to find exercise, yoga, meditation, and wellness videos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reels-actions">
+                <button class="action-btn" id="like-btn" title="Like">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn" id="share-btn" title="Share">
+                    <i class="far fa-share-square"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/reels.js' %}"></script>
+</body>
+</html>

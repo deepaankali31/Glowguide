@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link active">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container dashboard-container">
+            <div class="dashboard-header">
+                <h1 class="welcome-title">Welcome back, <span class="user-name">Alex</span>!</h1>
+                <p class="welcome-subtitle">Here's your wellness overview for today</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- Health Score Card -->
+                <div class="dashboard-card health-score-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h2>Your Health Score</h2>
+                    </div>
+                    <div class="score-visual">
+                        <div class="score-circle">
+                            <span id="health-score-value" class="score-value">85</span>
+                            <span class="score-label">/100</span>
+                        </div>
+                        <div class="score-ring">
+                            <div class="ring-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="encouragement">Keep up the great work! 🎯</p>
+                    </div>
+                </div>
+
+                <!-- AI Tip Card -->
+                <div class="dashboard-card ai-tip-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h2>AI Tip of the Day</h2>
+                    </div>
+                    <div class="tip-content">
+                        <div class="tip-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <p id="ai-tip-text">Remember to take a 5-minute break to stretch for every hour you sit. Your back will thank you!</p>
+                    </div>
+                    <div class="card-footer">
+                        <button id="getNewTipBtn" class="btn btn-secondary">
+                            <span>Get New Tip</span>
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Weekly Progress Card -->
+                <div class="dashboard-card progress-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h2>Weekly Progress</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="weeklyHabitChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/dashboard.js' %}"></script>
+</body>
+</html>

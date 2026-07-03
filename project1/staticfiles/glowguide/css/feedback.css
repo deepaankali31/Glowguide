@@ -1,0 +1,39 @@
+.feedback-container {
+    max-width: 700px;
+}
+.feedback-container h1, .feedback-container p {
+    text-align: center;
+}
+.feedback-container h1 { margin-bottom: 0.5rem; }
+.feedback-container p { margin-bottom: 2rem; }
+
+#feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.feedback-response {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}

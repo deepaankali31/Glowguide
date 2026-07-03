@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Routine Generator - Glow Guide</title>
+    <link rel="stylesheet" href="{% static 'glowguide/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'glowguide/css/routine.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'glowguide:index' %}" class="nav-logo">
+                <span class="logo-icon">🌱</span>
+                Glow Guide
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="{% url 'glowguide:dashboard' %}" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:habit' %}" class="nav-link">Habits</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:routine' %}" class="nav-link active">Routines</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:reels' %}" class="nav-link">Reels</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:chat' %}" class="nav-link">AI Chat</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:analytics' %}" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="{% url 'glowguide:index' %}" class="nav-link">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container routine-container">
+            <div class="routine-header">
+                <h1 class="page-title">AI Routine Generator</h1>
+                <p class="page-subtitle">Let's build the perfect routine for you. Tell me a bit about your goals.</p>
+            </div>
+
+            <!-- Generator Form -->
+            <div class="generator-form card">
+                <div class="form-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>Create Your Routine</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label for="routine-prompt" class="input-label">
+                        <i class="fas fa-bullseye"></i>
+                        Describe Your Goals
+                    </label>
+                    <textarea id="routine-prompt" rows="4" placeholder="e.g., 'I want a morning routine to feel more energized. I have 30 minutes and enjoy light exercise like stretching.'"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="ai-personality" class="input-label">
+                        <i class="fas fa-user-tie"></i>
+                        AI Coach Personality
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="ai-personality">
+                            <option value="a friendly and encouraging coach">🌟 Encouraging Coach</option>
+                            <option value="a straightforward, no-nonsense drill sergeant">💪 Drill Sergeant</option>
+                            <option value="a calm and mindful zen master">🧘 Zen Master</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                </div>
+
+                <button id="generate-routine-btn" class="btn btn-primary btn-generate">
+                    <span>Generate My Routine</span>
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                </button>
+            </div>
+
+            <!-- Routine Result -->
+            <div id="routine-result" class="routine-result card">
+                <div class="result-header">
+                    <i class="fas fa-list-check"></i>
+                    <h3>Your Personalized Routine</h3>
+                </div>
+                <div id="routine-content" class="routine-content">
+                    <div class="placeholder-content">
+                        <i class="fas fa-sparkles"></i>
+                        <p>Your AI-generated routine will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="{% url 'glowguide:index' %}" class="footer-logo">
+                        <span class="logo-icon">🌱</span>
+                        Glow Guide
+                    </a>
+                    <p>Your AI-powered coach for a healthier, more intentional life.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="{% url 'glowguide:feedback' %}">Give Feedback</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glow Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'glowguide/js/main.js' %}"></script>
+    <script src="{% static 'glowguide/js/routine.js' %}"></script>
+</body>
+</html>
